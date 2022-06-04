@@ -1,4 +1,4 @@
-package practice.geeksforgeeks;
+package practice.geeksforgeeks.arrays;
 
 public class LeftRotateArrayByONE {
     public static void main(String[] args) {

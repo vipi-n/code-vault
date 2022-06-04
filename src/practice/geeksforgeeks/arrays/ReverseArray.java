@@ -1,4 +1,4 @@
-package practice.geeksforgeeks;
+package practice.geeksforgeeks.arrays;
 
 public class ReverseArray {
 
