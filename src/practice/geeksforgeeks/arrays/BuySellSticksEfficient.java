@@ -4,7 +4,7 @@ public class BuySellSticksEfficient {
 
     public static void main(String[] args) {
 
-        int arr[] = {1,5,3,8,12};
+        int arr[] = {7,1,5,3,6,4};
         int maxProfit = buySell(arr, 0, 4);
         System.out.println(maxProfit);
     }

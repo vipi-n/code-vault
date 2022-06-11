@@ -7,9 +7,9 @@ public class QueueWithArray {
     int[] arr;
 
     QueueWithArray(int c){
-        cap = c;
+        this.cap = c;
         size = 0;
-        arr = new int[size];
+        arr = new int[cap];
     }
     boolean isEmpty(){
         return size == 0;
@@ -39,5 +39,16 @@ public class QueueWithArray {
             arr[i] = arr[i + 1];
             size --;
         }
+    }
+
+    public static void main(String[] args) {
+        QueueWithArray queue = new QueueWithArray(1000);
+
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        queue.enqueue(40);
+        System.out.println("Front item is " + queue.getFront());
+        System.out.println("Rear item is " + queue.getRear());
     }
 }
