@@ -1,9 +1,6 @@
 package practice.tree;
 
-//TC O(n)
-// SC O(height + 1)
-public class BinaryTreeHeight {
-
+public class PrintNodeAtDistanceK {
     public static void main(String[] args) {
 
         Node root=new Node(10);
@@ -13,14 +10,20 @@ public class BinaryTreeHeight {
         root.left.right=new Node(50);
         root.right.right=new Node(70);
         root.right.right.right=new Node(80);
+        int k=2;
 
-        int height = heightOfTree(root);
-        System.out.println("height  is :" +height);
+        printNode(root, 2);
 
     }
-    private static int heightOfTree(Node root) {
-        if (root == null) return 0;
-        return Math.max(heightOfTree(root.left), heightOfTree(root.right)) + 1;
+
+    private static void printNode(Node root, int k) {
+
+        if(root == null) return;
+        if (k == 0) System.out.println(root.key+ " ");
+        printNode(root.left, k - 1);
+        printNode(root.right, k - 1);
+
     }
+
 
 }
