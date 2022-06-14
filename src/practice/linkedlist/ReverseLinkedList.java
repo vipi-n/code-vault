@@ -16,6 +16,9 @@ public class ReverseLinkedList {
         System.out.println("LinkedList after reverse :");
         Node reverseHead = reverse(head);
         iterate(reverseHead);
+        Node reverseHeadRec = reverseRec(head);
+        iterate(reverseHeadRec);
+
     }
 
     public static Node reverse(Node head){
@@ -31,6 +34,17 @@ public class ReverseLinkedList {
             curr = temp;
         }
         return pre;
+    }
+
+    public static Node reverseRec(Node head){
+
+        if (head == null || head.next == null) return head;
+
+        Node newHead = reverseRec(head.next);
+        Node headNext = head.next;
+        headNext.next = head;
+        head.next = null;
+        return newHead;
     }
 
     public static void iterate(Node head){
