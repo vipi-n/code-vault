@@ -44,4 +44,11 @@ public class ReverseString {
         }
         return temp;
     }
+
+    public static String reverse4(String str) {
+        if ((null == str) || (str.length() <= 1)) {
+            return str;
+        }
+        return reverse4(str.substring(1)) + str.charAt(0);
+    }
 }

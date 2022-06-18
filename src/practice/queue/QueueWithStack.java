@@ -1,11 +1,16 @@
 package practice.queue;
 
+import java.util.ArrayDeque;
 import java.util.Stack;
 
 public class QueueWithStack {
 
-    static Stack<Integer> stack1 = new Stack<>();
-    static Stack<Integer> stack2 = new Stack<>();
+    //static Stack<Integer> stack1 = new Stack<>();
+    //static Stack<Integer> stack2 = new Stack<>();
+    // for single threaded environment we should use ArrayDeque because Stack extend vector class which is thread safe
+    // and it can cause extra overhead , also vector is a lagacy class in java
+    static ArrayDeque<Integer> stack1 = new ArrayDeque<>();
+    static ArrayDeque<Integer> stack2 = new ArrayDeque<>();
 
 
     public static void add(int x){
