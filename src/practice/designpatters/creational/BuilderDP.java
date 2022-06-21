@@ -1,4 +1,4 @@
-package practice.designpatters;
+package practice.designpatters.creational;
 
 public class BuilderDP {
 

@@ -1,4 +1,4 @@
-package practice.designpatters;
+package practice.designpatters.creational;
 
 public class FactoryDP {
 }
@@ -18,7 +18,7 @@ class Car extends Vehicle1 {
         this.wheel = wheel;
     }
 
-    @Override
+
     public int getWheel() {
         return this.wheel;
     }
@@ -31,7 +31,7 @@ class Bike extends Vehicle1 {
         this.wheel = wheel;
     }
 
-    @Override
+
     public int getWheel() {
         return this.wheel;
     }
