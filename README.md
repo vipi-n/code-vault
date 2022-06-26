@@ -1,3 +1,4 @@
 Random code dump -_-
 
-![rick-and-morty-rtj](https://user-images.githubusercontent.com/65813964/174458221-32947218-1119-438e-8307-683811f41f2e.gif)
+
+![giphy](https://user-images.githubusercontent.com/65813964/175805798-166fdddf-d675-4939-a206-8ef76fb1f444.gif)
