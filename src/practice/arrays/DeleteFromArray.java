@@ -25,4 +25,7 @@ package practice.arrays;
         }
         return nums.length-1;
     }
+    String s = "";
+     char[] temp = s.toCharArray();
+
 }

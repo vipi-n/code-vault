@@ -21,6 +21,7 @@ public class ReverseLinkedList {
 
     }
 
+    // iterative
     public static Node reverse(Node head){
 
         Node curr = head;
@@ -35,7 +36,7 @@ public class ReverseLinkedList {
         }
         return pre;
     }
-
+    //recursive : 1
     public static Node reverseRec(Node head){
 
         if (head == null || head.next == null) return head;
@@ -46,6 +47,9 @@ public class ReverseLinkedList {
         head.next = null;
         return newHead;
     }
+    //recursive : 2
+
+
 
     public static void iterate(Node head){
         Node curr = head;
