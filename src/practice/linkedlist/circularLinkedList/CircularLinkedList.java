@@ -8,13 +8,29 @@ public class CircularLinkedList {
         Node first = new Node(20);
         Node second = new Node(30);
         Node third = new Node(40);
-
+        // 10->20->30->40->10
         head.next = first;
         first.next = second;
         second.next = third;
         third.next = head;
+        System.out.println(checkCircular(head));
 
 
+    }
+
+    public static boolean checkCircular(Node head){
+
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next; // 20 30
+            fast = fast.next.next; //30 10
+            if (slow == fast){
+                return true;
+            }
+        }
+        return false;
     }
 }
 class Node{
