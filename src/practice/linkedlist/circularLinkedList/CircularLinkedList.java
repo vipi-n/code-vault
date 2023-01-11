@@ -8,17 +8,16 @@ public class CircularLinkedList {
         Node first = new Node(20);
         Node second = new Node(30);
         Node third = new Node(40);
-        // 10->20->30->40->10
         head.next = first;
         first.next = second;
         second.next = third;
         third.next = head;
-        System.out.println(checkCircular(head));
+        System.out.println(detectCycle(head));
 
 
     }
 
-    public static boolean checkCircular(Node head){
+    public static Node detectCycle(Node head){
 
         Node slow = head;
         Node fast = head;
@@ -27,10 +26,24 @@ public class CircularLinkedList {
             slow = slow.next; // 20 30
             fast = fast.next.next; //30 10
             if (slow == fast){
-                return true;
+                return slow;
             }
         }
-        return false;
+        return null;
+    }
+    public void removeCycle(Node head){
+
+        Node detectedNode = detectCycle(head);
+        Node start = head;
+        Node prev = detectedNode;
+
+        while(head != detectedNode){
+           start = start.next;
+           prev = detectedNode;
+           detectedNode = detectedNode.next;
+        }
+        prev.next = null;
+
     }
 }
 class Node{
