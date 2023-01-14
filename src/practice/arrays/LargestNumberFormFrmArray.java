@@ -19,7 +19,7 @@ public class LargestNumberFormFrmArray {
                 return yx.compareTo(xy);
             }
         });
-
+        // if after sorting also first element is 0 means the whole elements are 0 and return 0
         if (asStrs[0].equals("0")) {
             return "0";
         }
