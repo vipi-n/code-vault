@@ -21,4 +21,30 @@ class LengthOfLongestSubstring {
        } 
        return maxLen;
     }
+
+    class Solution {
+    public int lengthOfLongestSubstring_UsingSet(String s) {
+      
+        int result = 0;
+        if(s.length() == 0) return 0;
+
+        HashSet<Character> set = new HashSet<>();
+        int i = 0;
+        int j = 0;
+        
+        while( j < s.length()){
+            
+            if(!set.contains(s.charAt(j))){
+                set.add(s.charAt(j));
+                j++;
+                result = Math.max(result, set.size());
+            }else{
+              set.remove(s.charAt(i));
+                i++;
+            }
+        }
+
+        return result;
+    }
+}
 }
