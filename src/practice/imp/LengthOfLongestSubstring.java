@@ -22,7 +22,6 @@ class LengthOfLongestSubstring {
        return maxLen;
     }
 
-    class Solution {
     public int lengthOfLongestSubstring_UsingSet(String s) {
       
         int result = 0;
@@ -45,6 +44,5 @@ class LengthOfLongestSubstring {
         }
 
         return result;
-    }
-}
+  }
 }
