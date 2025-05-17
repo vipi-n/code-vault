@@ -1,5 +1,7 @@
 // Implement max heap
 
+// PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder()); // max heap in java
+
 public class MaxHeap {
 
     int size = 0;
