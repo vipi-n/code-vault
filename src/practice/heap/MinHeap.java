@@ -1,5 +1,7 @@
 //Implement min heap
 
+// PriorityQueue<Integer> minHeap = new PriorityQueue<>(); // min heap in java
+       
 public class MinHeap {
 
     int size = 0;
