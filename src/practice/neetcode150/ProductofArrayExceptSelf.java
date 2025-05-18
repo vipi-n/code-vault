@@ -28,4 +28,29 @@ class Solution {
         }
         return arr;
     }
+
+    //optimized
+
+    public int[] productExceptSelfOptimized(int[] nums) {
+        
+        int n = nums.length;
+        int[] ans = new int[n];
+        int curr = 1;
+        Arrays.fill(ans, 1);
+        
+        // [1,2,3,4]
+        for(int i = 0; i < n; i++) {
+           ans[i] *= curr; // 1  1 2 6
+           curr *= nums[i]; // 1 2 6 24
+        }
+        curr = 1;
+        for(int i = n - 1; i >= 0; i--) { 
+           ans[i] *= curr; // 6 8 12 24
+           curr *= nums[i]; // 4 12 24
+             
+        }
+        return ans;
+    }
 }
+
+
