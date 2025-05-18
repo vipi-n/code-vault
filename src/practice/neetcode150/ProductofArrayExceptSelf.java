@@ -17,6 +17,10 @@ class Solution {
         }
         for(int i = n - 2; i >= 0; i--) {
             suf[i] = suf[i + 1] * nums[i + 1];
+            // suf[3] = 1
+            // suf[2] = suf[3] * nums[3] 4   
+            // suf[1] = suf[2] * nums[2] 12
+            // suf[0] = suf[1] * nums[1] 24
         }
         for(int i = 0; i < n; i++) {
             
