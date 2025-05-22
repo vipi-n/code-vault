@@ -21,4 +21,25 @@ class Solution {
         }
         return maxWater;
     }
+
+    //
+    public int maxArea2(int[] height) {
+
+        int i=0;
+        int j=height.length-1;
+        int ans=0;
+        while(i<j){
+            if(height[i]<=height[j]){
+                ans=Math.max(ans,height[i]*(j-i));
+                i++;
+            }
+            else{
+                ans=Math.max(ans,height[j]*(j-i));
+                j--;
+            }
+        }
+
+        return ans;
+
+    }
 }
