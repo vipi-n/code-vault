@@ -23,9 +23,8 @@ class Solution {
         int sum = (l1 != null ? l1.val : 0) + (l2 != null ? l2.val: 0) + carry;
         curr.val = sum % 10;
         carry = sum / 10;
-        
         prev.next = curr;
-        prev = curr;
+        prev = prev.next;
 
         if(l1 != null) l1 = l1.next;
         if(l2 != null) l2 = l2.next; 
