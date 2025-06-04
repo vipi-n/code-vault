@@ -1,4 +1,5 @@
-//
+// TC = Theta(N) / O(N)
+// SC = Theta(W), W is the width of the BT
 
 import java.util.LinkedList;
 import java.util.Queue;
