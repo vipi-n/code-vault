@@ -15,7 +15,7 @@
  *     }
  * }
  */
-// add root and null, then check if curr is null, if yes then add a new null and clear the list, this indicate a new line now
+// add root and null, then check if curr is null, if yes then add a new null and create a new list, this indicate a new line now
 class BinaryTreeLevelOrderTraversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
 
