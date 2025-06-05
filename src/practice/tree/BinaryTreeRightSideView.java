@@ -35,4 +35,29 @@ class Solution {
         printRight(root.right, level + 1);
         printRight(root.left, level + 1);
     }
+
+    // Iterative
+    public List<Integer> rightSideViewIterative(TreeNode root) {
+        
+        if (root == null) return new ArrayList<>();
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<Integer> result = new ArrayList<>();
+        queue.add(root);
+
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+
+            for(int i = 0; i < size; i++) {
+
+                TreeNode curr = queue.poll();
+                if(i == 0){
+                    result.add(curr.val);
+                }
+            if(curr.right != null) queue.add(curr.right);
+            if(curr.left != null) queue.add(curr.left);
+            }
+        }
+        return result;
+    }
 }
