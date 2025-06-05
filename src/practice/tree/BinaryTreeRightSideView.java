@@ -32,7 +32,7 @@ class Solution {
             res.add(root.val);
             maxLevel = level;
         }
-        printRight(root.right, level + 1);
+        printRight(root.right, level + 1); // for left view swap 35 with 36
         printRight(root.left, level + 1);
     }
 
@@ -54,7 +54,7 @@ class Solution {
                 if(i == 0){
                     result.add(curr.val);
                 }
-            if(curr.right != null) queue.add(curr.right);
+            if(curr.right != null) queue.add(curr.right); // for left view swap 58 with 57
             if(curr.left != null) queue.add(curr.left);
             }
         }
