@@ -25,4 +25,11 @@ class Solution {
 
         return checkTree(root.left) && checkTree(root.right);
     }
+
+ // only below required for this Q
+
+ public boolean checkTreeThis(TreeNode root) {
+
+        return root.val == root.left.val + root.right.val;
+    }
 }
