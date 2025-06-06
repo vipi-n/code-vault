@@ -17,26 +17,28 @@ class Node
 // This function should return head to the DLL
 
 class Solution {
-    // Function to convert binary tree to doubly linked list and return it.
-    
     Node prev = null;
+    Node head = null;
 
     Node bToDLL(Node root) {
-        //  Your code here
-        
-        if(root == null) {
-          return root;
+        if (root == null) return null;
+
+        // Step 1: Convert left subtree
+        bToDLL(root.left);
+
+        // Step 2: Process current node
+        if (prev == null) {
+            head = root; // First node (leftmost) becomes head
+        } else {
+            root.left = prev;
+            prev.right = root;
         }
-        Node head = bToDLL(root.left);
-        
-        if(prev == null) {
-            head = root;
-    } else {
-        root.left = prev;
-        prev.right = root;
-    }
-     prev = root;
-     bToDLL(root.right);
-     return head;
+        prev = root;
+
+        // Step 3: Convert right subtree
+        bToDLL(root.right);
+
+        return head;
     }
 }
+
