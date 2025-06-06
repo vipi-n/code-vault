@@ -9,9 +9,31 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
-// naive
-class Solution {
-    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+
+// efficient
+
+
+// efficient
+class LowestCommonAncestor {
+
+    public TreeNode lowestCommonAncestor_(TreeNode root, TreeNode p, TreeNode q) {
+        
+        TreeNode curr = root;
+
+        while(curr != null) {
+            if(curr.val < p.val && curr.val < q.val) {
+              curr = curr.right;
+            } else if(curr.val > p.val && curr.val > q.val) {
+                curr = curr.left;
+            } else {
+                return curr;
+            }
+        }
+        return null;
+    }
+
+    //naive
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
         // Lists to store paths from root to p and q
         ArrayList<TreeNode> path1 = new ArrayList<>();
