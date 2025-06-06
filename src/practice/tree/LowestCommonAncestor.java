@@ -10,26 +10,21 @@
  * }
  */
 
-// efficient
-
-
-// efficient
 class LowestCommonAncestor {
+// efficient
+public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) return null;
 
-    public TreeNode lowestCommonAncestor_(TreeNode root, TreeNode p, TreeNode q) {
-        
-        TreeNode curr = root;
-
-        while(curr != null) {
-            if(curr.val < p.val && curr.val < q.val) {
-              curr = curr.right;
-            } else if(curr.val > p.val && curr.val > q.val) {
-                curr = curr.left;
-            } else {
-                return curr;
-            }
+        if (p.val < root.val && q.val < root.val) {
+            // Both nodes are in the left subtree
+            return lowestCommonAncestor(root.left, p, q);
+        } else if (p.val > root.val && q.val > root.val) {
+            // Both nodes are in the right subtree
+            return lowestCommonAncestor(root.right, p, q);
+        } else {
+            // We are at the split point or at one of the nodes
+            return root;
         }
-        return null;
     }
 
     //naive
