@@ -15,7 +15,7 @@
  *     }
  * }
  */
-class Solution {
+class ConstructBinaryTreeFromPreorderInorder {
     int preIndex = 0;
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
