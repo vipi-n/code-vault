@@ -35,3 +35,12 @@ class Graph {
 		printGraph(adj); 
 	} 
 } 
+/* 
+OP :
+1 2 
+0 2 3 
+0 1 
+1
+*/
+
+
