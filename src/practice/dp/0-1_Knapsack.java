@@ -26,7 +26,7 @@ class Solution {
         }
     }
 }
-    // 2. Memoization
+    // 2. Memoization (top down)
 class Solution_Memoization {
 
     static int knapsack(int W, int val[], int wt[]) {
@@ -57,6 +57,31 @@ class Solution_Memoization {
         } else {
             return dp[W][n] = knapsack01(W, val, wt, n - 1, dp);
         }
+    }
+}
+
+// bottom-up 
+class Solution {
+    
+    static int knapsack(int W, int val[], int wt[]) {
+       
+        int n = val.length;
+        int[][] dp = new int[n + 1][W + 1];
+        // in the first row and column we need to put 0, by default it will be 0 in java 
+        
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= W; j++) {
+                
+                if(j >= wt[i - 1]) {
+                    dp[i][j] = Math.max(val[i - 1] + dp[i - 1][j - wt[i - 1]],
+                                dp[i - 1][j]);
+                }
+                else {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+       }
+        return dp[n][W];
     }
 }
 
