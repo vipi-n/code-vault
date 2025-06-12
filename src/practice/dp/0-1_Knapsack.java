@@ -26,5 +26,40 @@ class Solution {
         }
     }
 }
+    // 2. Memoization
+class Solution_Memoization {
+
+    static int knapsack(int W, int val[], int wt[]) {
+        int n = val.length;
+        int[][] dp = new int[W + 1][n + 1];
+        
+        for (int i = 0; i <= W; i++) {
+            Arrays.fill(dp[i], -1);
+        }
+        
+        return knapsack01(W, val, wt, n, dp);
+    }
+
+    private static int knapsack01(int W, int val[], int wt[], int n, int[][] dp) {
+        if (W == 0 || n == 0) {
+            return 0;
+        }
+
+        if (dp[W][n] != -1) {
+            return dp[W][n];
+        }
+
+        if (W >= wt[n - 1]) {
+            return dp[W][n] = Math.max(
+                val[n - 1] + knapsack01(W - wt[n - 1], val, wt, n - 1, dp),
+                knapsack01(W, val, wt, n - 1, dp)
+            );
+        } else {
+            return dp[W][n] = knapsack01(W, val, wt, n - 1, dp);
+        }
+    }
+}
+
+
 
 
