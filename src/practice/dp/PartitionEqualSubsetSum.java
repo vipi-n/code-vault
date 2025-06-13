@@ -9,9 +9,9 @@ class PartitionEqualSubsetSum {
           sum += nums[i];
        }
        if(sum % 2 != 0) {
-        return false;
+        return false; // if the sume is odd there cannot be two subset of same sum
        } else {
-          return subSetSum(nums, sum / 2);
+          return subSetSum(nums, sum / 2); // we need to find just one subset with "sum/2" sum, if we find one another must be there. use the last subSetSum problem method only 
        }
     }
 
