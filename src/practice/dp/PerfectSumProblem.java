@@ -8,6 +8,10 @@ class Solution {
         for (int i = 0; i <= n; i++) {
             dp[i][0] = 1; // Empty subset sums to 0
         }
+        /* You can add below as well
+        for (int j = 1; j <= target; j++) {
+            dp[0][j] = 0;
+        }*/
 
         for (int i = 1; i <= n; i++) {
             for (int j = 0; j <= target; j++) {
