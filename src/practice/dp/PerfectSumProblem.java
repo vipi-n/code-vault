@@ -5,13 +5,14 @@ class Solution {
         int n = nums.length;
         int[][] dp = new int[n + 1][target + 1];
 
-        for (int i = 0; i <= n; i++) {
-            dp[i][0] = 1; // Empty subset sums to 0
-        }
-        /* You can add below as well
-        for (int j = 1; j <= target; j++) {
+       // No way to make positive sum using 0 elements
+       for (int j = 0; j <= target; j++) {
             dp[0][j] = 0;
-        }*/
+        }
+        // Only sum 0 is possible with any number of elements: 1 way (empty subset)
+        for (int i = 0; i <= n; i++) {
+            dp[i][0] = 1;
+        }
 
         for (int i = 1; i <= n; i++) {
             for (int j = 0; j <= target; j++) {
@@ -26,3 +27,4 @@ class Solution {
         return dp[n][target];
     }
 }
+
