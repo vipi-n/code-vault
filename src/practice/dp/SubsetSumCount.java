@@ -1,6 +1,6 @@
 //https://www.geeksforgeeks.org/problems/perfect-sum-problem5633/1
 
-class Solution {
+class SubsetSumCount {
     public int perfectSum(int[] nums, int target) {
         int n = nums.length;
         int[][] dp = new int[n + 1][target + 1];
