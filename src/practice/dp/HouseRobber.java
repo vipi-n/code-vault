@@ -31,7 +31,7 @@ class HouseRobber {
         for(int i = 1; i < nums.length; i++) {
             
             int rob = nums[i];
-            if(i > 1) rob += prev2;
+            if(i > 1) rob += prev2; // you can just remove if(i > 1)
 
             int notRob = 0 + prev;
             int maxRob = Math.max(rob, notRob);
