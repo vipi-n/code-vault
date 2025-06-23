@@ -98,4 +98,33 @@ public int longestCommonSubsequence_tabulation(String text1, String text2) {
         }
         return dp[m][n];
     }
+    // _space optimization
+    public int longestCommonSubsequence_space(String text1, String text2) {
+        
+        int m = text1.length();
+        int n = text2.length();
+        return lcs(text1, m, text2, n);
+    }
+
+    private int lcs_space(String text1, int m, String text2, int n) {
+        
+        int[] curr = new int[n + 1];
+        int[] prev = new int[n + 1];
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+
+                if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
+                     curr[j] = 1 + prev[j - 1];
+                } else {
+                     curr[j] = Math.max(prev[j], curr[j - 1]);
+                }
+            }
+              // Move current row to previous row for next iteration
+            int[] temp = prev;
+            prev = curr;
+            curr = temp;
+        }
+        return prev[n];
+    }
 }
