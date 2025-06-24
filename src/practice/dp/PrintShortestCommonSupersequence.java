@@ -3,15 +3,15 @@
 class PrintShortestCommonSupersequence {
     public String shortestCommonSupersequence(String str1, String str2) {
 
+       if (str1.equals(str2)) return str1;
        int m = str1.length();
        int n = str2.length();
-       int[][] dp = new int[m + 1][n + 1];
-
+       
        int i = m;
        int j = n;
        StringBuilder str = new StringBuilder();
 
-       lcs(str1, str2, m, n, dp);
+       int[][] dp = lcs(str1, str2, m, n);
 
        while(i > 0 && j > 0) {
 
@@ -42,8 +42,9 @@ class PrintShortestCommonSupersequence {
        return str.reverse().toString();
     }
 
-    private void lcs(String str1, String str2, int m, int n, int[][] dp) {
+    private  int[][] lcs(String str1, String str2, int m, int n) {
 
+        int[][] dp = new int[m + 1][n + 1];
         for(int i = 1; i <= m; i++) {
             for(int j = 1; j <= n; j++) {
 
@@ -54,6 +55,6 @@ class PrintShortestCommonSupersequence {
                 }
             }
         }
-        
+        return dp;
     }
 }
