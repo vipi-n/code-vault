@@ -5,6 +5,7 @@ class Solution {
 
         String s1 = new StringBuilder(s).reverse().toString();
         int m  = s.length();
+        if(s1.equals(s)) return m;
         return lcs(s, s1, m, m);
     }
 
