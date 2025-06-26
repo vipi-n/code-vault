@@ -31,10 +31,10 @@ class PalindromicPartitioning {
        for(int k = i; k < j; k++) {
            
           int partition = 1 + solve(s, i, k) + solve(s, k + 1, j);
-          
           min = Math.min(min, partition);
-          dp[i][j] = min;
+
        }
+        dp[i][j] = min;
        return dp[i][j];
     }
     
