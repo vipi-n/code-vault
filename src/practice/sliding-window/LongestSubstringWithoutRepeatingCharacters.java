@@ -1,0 +1,35 @@
+//https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+
+class LongestSubstringWithoutRepeatingCharacters {
+    public long maximumSubarraySum(int[] nums, int k) {
+
+       Set<Integer> set = new HashSet<>();
+        int i = 0;
+        int j = 0;
+        int n = nums.length;
+        long maxSum = 0;
+        long currSum = 0;
+
+        while(j < n) {
+
+            while(set.contains(nums[j])) {
+                 set.remove(nums[i]);
+                 currSum -= nums[i];
+                 i++;
+            } 
+
+            set.add(nums[j]);     
+            currSum += nums[j];
+            if(j - i + 1 == k) {
+               maxSum = Math.max(maxSum, currSum);
+               currSum = currSum - nums[i];
+               set.remove(nums[i]);
+               i++;
+               j++;
+            } else {
+                j++;
+            }
+        }
+        return maxSum;
+    }
+}
