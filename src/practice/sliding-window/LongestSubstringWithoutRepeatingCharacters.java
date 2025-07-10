@@ -32,4 +32,30 @@ class LongestSubstringWithoutRepeatingCharacters {
         }
         return maxSum;
     }
+
+    // HashMap
+
+    public int lengthOfLongestSubstring(String s) {
+      
+    
+      int i = 0;
+      int j = 0;
+      int n = s.length();
+      if(n <= 1) return n;
+      HashMap<Character, Integer> map = new HashMap<>();
+      int max = 0;
+
+      while(j < n) {
+
+        char ch = s.charAt(j);
+
+        if(map.containsKey(ch)) {
+           i = Math.max(i, map.get(ch) + 1);
+        }
+        map.put(ch, j);
+        max = Math.max(max, j - i + 1);
+        j++;
+      }  
+      return max;
+    }
 }
