@@ -26,3 +26,33 @@ class Solution {
         return maxLen;
     }
 }
+
+// optimized - find the maxLen of subarray with atmost k 0s
+
+    public int longestOnes_Optimized(int[] nums, int k) {
+
+        int maxLen = 0;
+        int n = nums.length;
+        int left = 0;
+        int right = 0;
+        int zeroCount = 0;
+
+        while (right < n) {
+
+            if(nums[right] == 0) {
+               zeroCount++; 
+            }
+            if(zeroCount <= k) {
+              maxLen = Math.max(maxLen, right - left + 1);
+            } else {
+                while(zeroCount > k) {
+                  if(nums[left] == 0) {
+                    zeroCount--;
+                  }
+                  left++;
+                }
+            }
+            right++;
+        }
+        return maxLen;
+}
