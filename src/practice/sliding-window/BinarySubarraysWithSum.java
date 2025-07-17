@@ -20,7 +20,7 @@ class Solution {
     }
 
   // optimized
-
+  // F(goal) - F(goal - 1) = number of subarrays with sum == goal
   public int numSubarraysWithSum(int[] nums, int goal) {
 
         return numSubarraysWithSumAtMostGoal(nums, goal) - numSubarraysWithSumAtMostGoal(nums, goal - 1);
