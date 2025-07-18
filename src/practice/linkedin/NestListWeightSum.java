@@ -1,6 +1,6 @@
 // https://algo.monster/liteproblems/339
 
-class DepthSum {
+class NestListWeightSum {
     public int depthSum(List<NestedInteger> nestedList) {
         return helper(nestedList, 1); // Depth starts at 1
     }
