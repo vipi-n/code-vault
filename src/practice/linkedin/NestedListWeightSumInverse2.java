@@ -9,7 +9,7 @@ interface NestedInteger {
     List<NestedInteger> getList();
 }
 
-class NestedListWeightSumInverse {
+class NestedListWeightSumInverse2 {
     public int depthSumInverse(List<NestedInteger> nestedList) {
         Queue<NestedInteger> queue = new LinkedList<>();
         queue.addAll(nestedList);
