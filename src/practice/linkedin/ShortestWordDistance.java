@@ -1,6 +1,6 @@
 //https://www.geeksforgeeks.org/problems/closest-strings0611/1
+// https://www.naukri.com/code360/problems/shortest-word-distance-ii_1459114?leftPanelTabValue=PROBLEM
 
-// User function Template for Java
 
 class Solution {
     int shortestDistance(ArrayList<String> s, String word1, String word2) {
