@@ -38,3 +38,31 @@ class NestedListWeightSumInverse {
         return totalSum;
     }
 }
+
+// reccuresive - https://www.youtube.com/watch?v=-t_vRG5S-Os
+
+class Solution {
+    public int depthSumInverse(List<NestedInteger> nestedList) {
+        return helper(nestedList, 0);
+    }
+
+    public int helper(List<NestedInteger> list, int sum) {
+        int total = sum;
+        List<NestedInteger> tmp = new ArrayList<>();
+
+        for (NestedInteger e : list) {
+            if (e.isInteger()) {
+                total += e.getInteger();
+            } else {
+                tmp.addAll(e.getList());
+            }
+        }
+
+        if (!tmp.isEmpty()) {
+            return total + helper(tmp, total);
+        }
+
+        return total;
+    }
+}
+
