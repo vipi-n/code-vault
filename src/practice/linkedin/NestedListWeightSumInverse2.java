@@ -39,6 +39,49 @@ class NestedListWeightSumInverse2 {
     }
 }
 
+// can understand:
+
+package org.example;
+
+import java.util.List;
+
+interface NestedInteger {
+    boolean isInteger();
+    Integer getInteger();
+    List<NestedInteger> getList();
+}
+
+public class Solution {
+    public int depthSumInverse(List<NestedInteger> nestedList) {
+        int maxDepth = maxDepth(nestedList, 1);
+        return getWeightedSum(nestedList, 1, maxDepth);
+    }
+    // First pass: get max depth
+    // Traverse each element; if it's a list, go one level deeper and recurse.
+    public int maxDepth(List<NestedInteger> nestedList, int depth) {
+        int max = depth;
+        for (NestedInteger ni : nestedList) {
+            if (!ni.isInteger()) {
+                max = Math.max(max, maxDepth(ni.getList(), depth + 1));
+            }
+        }
+        return max;
+    }
+    // Second pass: compute weighted sum
+    public int getWeightedSum(List<NestedInteger> nestedList, int depth, int maxDepth) {
+        int sum = 0;
+        for (NestedInteger ni : nestedList) {
+            if (ni.isInteger()) {
+                sum += ni.getInteger() * (maxDepth - depth + 1);
+            } else {
+                sum += getWeightedSum(ni.getList(), depth + 1, maxDepth);
+            }
+        }
+        return sum;
+    }
+}
+
+
 // reccuresive - https://www.youtube.com/watch?v=-t_vRG5S-Os
 
 class Solution {
