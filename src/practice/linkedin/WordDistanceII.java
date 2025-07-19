@@ -6,13 +6,12 @@ import java.util.*;
 class WordDistanceII {
     private Map<String, List<Integer>> wordIndexMap;
 
-    public WordDistance(String[] wordsDict) {
+    public WordDistanceII(String[] wordsDict) {
         wordIndexMap = new HashMap<>();
 
         for (int i = 0; i < wordsDict.length; i++) {
-            wordIndexMap
-                .computeIfAbsent(wordsDict[i], k -> new ArrayList<>())
-                .add(i);
+            wordIndexMap.putIfAbsent(wordsDict[i], new ArrayList<>());
+            wordIndexMap.get(wordsDict[i]).add(i);
         }
     }
 
