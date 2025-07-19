@@ -1,5 +1,5 @@
 // https://www.interviewbit.com/problems/paint-house/
-
+// https://www.youtube.com/watch?v=kh48JLieeW8
 public class PaintHouse {
     public int solve(int[][] A) {
         
