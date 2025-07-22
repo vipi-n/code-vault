@@ -1,4 +1,5 @@
 //https://leetcode.com/problems/insert-delete-getrandom-o1/
+//https://chatgpt.com/s/t_687fed2820588191a45ac17697e7adec
 
 class RandomizedSet {
 
