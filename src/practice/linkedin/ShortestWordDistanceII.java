@@ -3,7 +3,7 @@
 
 import java.util.*;
 
-class ShortestDistance {
+class ShortestWordDistanceII {
     private Map<String, List<Integer>> wordIndexMap;
 
     public WordDistanceII(String[] wordsDict) {
