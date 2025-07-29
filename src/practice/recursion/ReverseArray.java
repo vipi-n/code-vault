@@ -16,3 +16,22 @@ public class Solution {
        return nums;
     }
 }
+
+public class Solution {
+    public static int[] reverseArray(int n, int []nums) {
+       
+       
+       reverse(nums, 0, nums.length - 1);
+       return nums;
+    }
+
+    public static void reverse(int []nums, int i, int j) {
+
+        if(i >= j) return;
+
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+        reverse(nums, i + 1, j - 1);
+    }
+}
