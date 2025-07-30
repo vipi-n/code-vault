@@ -48,4 +48,25 @@ public class Solution  {
 
         return false;
     }
+
+    // Count all subsequences whose sum equals k
+         public int findSubsequence( int ind, int sum, int k, ArrayList<Integer> cur,  ArrayList<Integer> arr ) {
+
+        if (ind == arr.size()) {
+            if (sum == k) {
+                res.add(new ArrayList<>(cur));
+                return 1;
+            }
+            return 0;
+        }
+         cur.add(arr.get(ind));
+         sum += arr.get(ind);
+
+         int left = findSubsequence(ind + 1, sum, k, cur, arr);
+         sum -= arr.get(ind);
+         cur.remove(cur.size() - 1);
+
+         int right = findSubsequence(ind + 1, sum, k, cur, arr);
+         return left + right;
+    }
 }
