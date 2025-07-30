@@ -27,4 +27,25 @@ public class Solution  {
         // Exclude arr[ind]
         findSubsequence(ind + 1, sum, k, cur, arr);
     }
+
+    // to find only one
+     public boolean findSubsequence(int ind, int sum, int k, ArrayList<Integer> cur, ArrayList<Integer> arr) {
+        if (ind == arr.size()) {
+            if (sum == k) {
+                res.add(new ArrayList<>(cur));
+                return true;
+            }
+            return false;
+        }
+
+        cur.add(arr.get(ind));
+        sum += arr.get(ind);
+        if (findSubsequence(ind + 1, sum, k, cur, arr)) return true;
+        sum -= arr.get(ind);
+        cur.remove(cur.size() - 1);
+
+        if (findSubsequence(ind + 1, sum, k, cur, arr)) return true;
+
+        return false;
+    }
 }
