@@ -58,3 +58,33 @@ class Solution {
         getAllSubsetWithSumK(num + 1, k, res, list, target);
     }
 }
+
+
+// for loop
+
+class Solution {
+    public List<List<Integer>> combinationSum3(int k, int n) {
+
+        List<List<Integer>> res = new ArrayList<>();
+        getAllSubsetWithSumK(1, k, res, new ArrayList<>(), n);
+        return res;
+    }
+
+    private void getAllSubsetWithSumK(int num, int k, List<List<Integer>> res, List<Integer> list, int target) {
+        
+        if (list.size() == k && target == 0) {
+            res.add(new ArrayList<>(list));
+            return;
+        }
+
+        for(int i = num; i < 10; i++) {
+
+        if(i > target) return;
+
+        list.add(i);
+        getAllSubsetWithSumK(i + 1, k, res, list, target - i);
+
+        list.remove(list.size() - 1);
+        }
+    }
+}
