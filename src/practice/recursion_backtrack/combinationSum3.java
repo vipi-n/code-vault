@@ -31,3 +31,30 @@ class Solution {
 
     }
 }
+
+// More readable with less parameter
+
+class Solution {
+    public List<List<Integer>> combinationSum3(int k, int n) {
+
+        List<List<Integer>> res = new ArrayList<>();
+        getAllSubsetWithSumK(1, k, res, new ArrayList<>(), n);
+        return res;
+    }
+
+    private void getAllSubsetWithSumK(int num, int k, List<List<Integer>> res, List<Integer> list, int target) {
+        
+        if(num > 10) return;
+        
+        if (list.size() == k && target == 0) {
+            res.add(new ArrayList<>(list));
+            return;
+        }
+
+        list.add(num);
+        getAllSubsetWithSumK(num + 1, k, res, list, target - num);
+
+        list.remove(list.size() - 1);
+        getAllSubsetWithSumK(num + 1, k, res, list, target);
+    }
+}
