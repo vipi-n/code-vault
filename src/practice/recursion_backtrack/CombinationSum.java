@@ -53,7 +53,7 @@ class Solution {
         if (arr[index] <= target) { // if arr[index] is greater than sume we'll never find target 
             list.add(arr[index]); // pick
             getAllSubsetWithSumK(arr, res, list, index, target - arr[index]);
-            list.remove(list.size() - 1); // we need to remove what we have added for not-pick case
+            list.remove(list.size() - 1); // backtrack: we need to remove what we have added for not-pick case
         }
         getAllSubsetWithSumK(arr, res, list, index + 1, target); // not pick, so target remains same
 
