@@ -1,4 +1,6 @@
 // https://www.naukri.com/code360/problems/merge-sort_920442?leftPanelTabValue=PROBLEM
+// TC nlogn
+
 public class Solution {
     public static void mergeSort(int[] arr, int n) {
 
