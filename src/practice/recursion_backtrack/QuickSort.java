@@ -1,4 +1,5 @@
 // https://leetcode.com/problems/sort-an-array/
+// Use Merge sort for this problem
 
 // TC - nlogn, O(N ^ 2) if we end up choosing the largest or smallest element as the pivot always
 class Solution {
