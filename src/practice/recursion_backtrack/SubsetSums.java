@@ -15,8 +15,10 @@ class Solution {
            res.add(sum); 
            return;
         }
-        
+
+        // pick that element
         subSetSum(arr, index + 1, sum + arr[index]);
+         // not pick that element
         subSetSum(arr, index + 1, sum);
         
     }
