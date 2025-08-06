@@ -1,5 +1,6 @@
 // https://leetcode.com/problems/n-queens/description/
-
+// TC O(N!)
+// CS O(N^2)
 class Solution {
     public List<List<String>> solveNQueens(int n) {
 
