@@ -1,4 +1,5 @@
 // https://www.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
+// TC O(nlogn), SC O(n)
 
 class Solution {
     static int inversionCount(int arr[]) {
