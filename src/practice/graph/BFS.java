@@ -7,7 +7,7 @@ class BFS {
         // code here
         
         int V = adj.size();
-        ArrayList<Integer> bsfList = new ArrayList<>();
+        ArrayList<Integer> bfsList = new ArrayList<>();
         Queue<Integer> queue = new LinkedList<>();
         boolean[] vis = new boolean[V];
         
@@ -17,7 +17,7 @@ class BFS {
         while(!queue.isEmpty()) {
             
             int node = queue.poll();
-            bsfList.add(node);
+            bfsList.add(node);
             
             for(int i : adj.get(node)) {
                 if(!vis[i]) {
@@ -26,6 +26,6 @@ class BFS {
                 }
             }
         }
-        return bsfList;
+        return bfsList;
     }
 }
