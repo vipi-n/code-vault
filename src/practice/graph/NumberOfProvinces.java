@@ -43,3 +43,34 @@ class Solution {
         }
     }
 }
+
+
+//
+
+class Solution {
+    public int findCircleNum(int[][] isConnected) {
+        
+        int V = isConnected.length;
+        int count = 0;
+        int[] vis = new int[V];
+    
+        for(int i = 0; i < V; i++) {
+            if(vis[i] == 0) {
+                count++;
+                dfs(i, vis, isConnected);
+            }
+        }
+        return count;
+    }
+
+    public void dfs(int i, int[] vis, int[][] adjMat) {
+
+        for(int j = 0; j < adjMat.length; j++) {
+
+            if(adjMat[i][j] == 1 && vis[j] == 0) {
+                vis[j] = 1;
+                dfs(j, vis, adjMat);
+            }
+        }
+    }
+}
