@@ -64,11 +64,10 @@ class Solution {
     }
 
     public void dfs(int i, int[] vis, int[][] adjMat) {
-
+        
+        vis[i] = 1;  
         for(int j = 0; j < adjMat.length; j++) {
-
             if(adjMat[i][j] == 1 && vis[j] == 0) {
-                vis[j] = 1;
                 dfs(j, vis, adjMat);
             }
         }
