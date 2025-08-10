@@ -3,6 +3,7 @@
 
 // TC and SC -  O(n×m)
 
+// BFS
 class Solution {
     public int[][] floodFill(int[][] image, int sr, int sc, int color) {
 
@@ -114,4 +115,42 @@ class Solution {
         }
     }
 }
+
+// DFS
+
+class Solution {
+    public int[][] floodFill(int[][] image, int sr, int sc, int color) {
+
+        int n = image.length;
+        int m = image[0].length;
+        int originalColor = image[sr][sc];
+
+        int[] dr = { 0, 1, 0, -1 }; // left, down, right, up
+        int[] dc = { -1, 0, 1, 0 };
+
+        if (originalColor == color)
+            return image;
+        dfs(image, dr, dc, sr, sc, color, originalColor);
+        return image;
+    }
+
+    private void dfs(int[][] image, int[] dr, int[] dc, int row, int col, int newColor, int originalColor) {
+
+        int n = image.length;
+        int m = image[0].length;
+        image[row][col] = newColor;
+
+        for (int k = 0; k < 4; k++) {
+            int newRow = row + dr[k];
+            int newCol = col + dc[k];
+
+            if (newRow >= 0 && newRow < n && newCol >= 0 && newCol < m
+                    && image[newRow][newCol] == originalColor && image[newRow][newCol] != newColor) { // image[newRow][newCol] != newColor is redundant since we already checking this in the main method
+                dfs(image, dr, dc, newRow, newCol, newColor, originalColor);
+            }
+        }
+
+    }
+}
+
 
