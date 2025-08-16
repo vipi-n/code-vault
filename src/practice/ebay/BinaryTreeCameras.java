@@ -45,3 +45,38 @@ class Solution {
         }
     }
 }
+
+//
+
+class Solution {
+   
+    int cam;
+    public int minCameraCover(TreeNode root) {
+        if(root == null) return 0;
+        cam = 0;
+        dfs(root);
+        return cam;
+        
+    }
+    // 0 : not covered
+    // 1 : covered
+    // 2 has camera
+    public int dfs(TreeNode node) {
+        if(node == null){
+            return 1;
+        }
+
+        int left = dfs(node.left);
+        int right = dfs(node.right);
+
+        if(left == 0 || right == 0) {
+           cam++;
+           return 2;
+        } else if(left == 2 || right == 2) {
+            return 1;
+        } else {
+            return 0;
+        } 
+        
+    }
+}
