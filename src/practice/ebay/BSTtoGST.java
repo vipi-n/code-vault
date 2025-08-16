@@ -58,3 +58,26 @@ class Solution {
 
     }
 }
+
+//
+
+class Solution {
+    private int sum = 0;
+    public TreeNode bstToGst(TreeNode root) {
+       
+        transform(root);
+        return root;
+    }
+
+    public void transform(TreeNode root) {
+
+        if(root == null){
+            return;
+        }
+
+        transform(root.right);
+        sum += root.val;
+        root.val = sum;  
+        transform(root.left);
+    }
+}
