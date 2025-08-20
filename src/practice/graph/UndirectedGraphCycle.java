@@ -65,3 +65,56 @@ class Solution {
         }
     }
 }
+
+//DFS
+
+class Solution {
+    public boolean isCycle(int V, int[][] edges) {
+        // Code here
+        
+        ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
+        
+        for(int i = 0; i < V; i++) {
+            adjList.add(new ArrayList<>());
+        }
+        
+        for(int[] edge : edges) {
+            
+            adjList.get(edge[0]).add(edge[1]);
+            adjList.get(edge[1]).add(edge[0]);
+        }
+        
+        boolean visited[] = new boolean[V];
+        int parent = -1;
+        
+        
+        for(int i = 0; i < V; i++) {
+            if(!visited[i]) {
+                if(dfs(adjList, visited, i, parent)){
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+    
+    private boolean dfs(ArrayList<ArrayList<Integer>> adjList, boolean visited[], int node, int parent) {
+        
+        visited[node] = true;
+        
+        for(int i : adjList.get(node)) {
+            if(!visited[i]) {
+               if(dfs(adjList, visited,  i, node)) {
+                   return true;
+               }
+            } else {
+                if(i != parent) {
+                    return true;
+                }
+            }
+        }
+        return false;
+        
+    }
+}
