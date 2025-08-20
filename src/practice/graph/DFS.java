@@ -1,5 +1,5 @@
 // https://www.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1
-//TC : O(V + E)
+//TC : O(V + 2E)
 class Solution {
     // Function to return a list containing the DFS traversal of the graph.
     public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
